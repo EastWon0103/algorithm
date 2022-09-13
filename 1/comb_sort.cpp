@@ -59,32 +59,3 @@ void combSort(int a[], int n)
 
     cout << countCmpOps << " " << countSwaps << " ";
 }
-
-/* BubbleSort 함수 - Improved Version 2 */
-void bubbleSortImproved2(int a[], int n)
-{
-    int countCmpOps = 0; // 비교 연산자 실행 횟수
-    int countSwaps = 0; // swap 함수 실행 횟수
-    // bubble sort의 개선된 알고리즘 (2) 구현
-    int lastSwappedPos = n;
-    while (lastSwappedPos > 0){
-        int swappedPos = 0;
-        for(int j=1;j<lastSwappedPos;j++){
-            countCmpOps++;
-            if(a[j-1] > a[j]){
-                countSwaps++;
-                swappedPos = j;
-                swap(a[j-1], a[j]);
-            }
-        }
-        lastSwappedPos = swappedPos;
-    }
-
-    cout << countCmpOps << " " << countSwaps << " ";
-
-    // cout << endl;
-    // for (int i=0;i<n;i++){
-    //     cout << a[i] << " ";
-    // }
-    // cout << endl;
-}
