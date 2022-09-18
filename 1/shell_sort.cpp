@@ -1,8 +1,9 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 #define MAX_SIZE 1000
-void insertionSort(int a[], int n);
+void shellSort(int a[], int n);
 
 void swap(int* a, int* b)
 {
@@ -24,8 +25,7 @@ int main(){
             cin >> a[j];
         }
 
-        insertionSort(a, num);
-
+        shellSort(a, num);
         cout << endl;
     }
     return 0;
@@ -37,24 +37,27 @@ void printArray(int a[], int n){
     cout << endl;
 }
 
-void insertionSort(int a[], int n){
+void shellSort(int a[], int n){
     int countCmpOps = 0; // 비교 연산자 실행 횟수
     int countSwaps = 0; // swap 함수 실행 횟수
-    
-    for(int i=1;i<n;i++){
-        int temp = a[i];
-        int insertPosition = i;
-        for(int j=i;j>0;j--){
-            countCmpOps++;
-            if(a[j-1]>temp){
-                countSwaps++;
-                a[j] = a[j-1];
-                insertPosition = j-1;
-            } else {
-                break;
+    int shrinkRatio = 2;
+    int gap = floor(n / shrinkRatio);
+    int j;
+    while(gap>0){
+        for(int i=gap;i<n;i++){
+            int temp = a[i];
+            for(j=i; j>=gap; j-=gap){
+                countCmpOps++;
+                if(a[j-gap] > temp){
+                    countSwaps++;
+                    a[j] = a[j-gap];
+                } else {
+                    break;
+                }
             }
+            a[j] = temp;
         }
-        a[insertPosition] = temp;
+        gap = floor(gap/shrinkRatio);
     }
     cout << countCmpOps << " " << countSwaps << " ";
 }

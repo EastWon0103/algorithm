@@ -25,6 +25,7 @@ int main(){
         }
 
         selectionSort(a, num);
+        cout << endl;
     }
     return 0;
 }

@@ -19,6 +19,7 @@ int main()
             cin >> a[j];
         }
         combSort(a, num);
+        cout << endl;
     }
 
     return 0;
@@ -42,7 +43,6 @@ void combSort(int a[], int n)
     // Comb Sort 알고리즘 구현
     while(!sorted){
         gap = floor(gap / shrink);
-        cout << "gap: " << gap << endl;
         if (gap <= 1){
             gap = 1;
             sorted = true;
