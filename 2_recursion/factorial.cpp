@@ -3,7 +3,6 @@
 using namespace std;
 
 int factorial(int n);
-int slicing(long long n);
 
 int main(){
     int testCaseNum;
