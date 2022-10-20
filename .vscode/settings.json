@@ -14,6 +14,7 @@
         "unordered_map": "cpp",
         "vector": "cpp",
         "array": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "dynami_coin": "cpp"
     }
 }
