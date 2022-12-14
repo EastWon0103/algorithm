@@ -1,0 +1,3 @@
+        if(patLen == i) {
+            break;
+        }
